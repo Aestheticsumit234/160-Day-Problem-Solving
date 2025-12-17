@@ -75,3 +75,57 @@ console.log(`String to Number  -> ${typeof numberValue10} -> ${numberValue10}`);
 let stringValue11 = "10"; // string
 let numberValue11 = stringValue11 % 0; // number
 console.log(`String to Number  -> ${typeof numberValue11} -> ${numberValue11}`);
+
+// operations
+let num1 = 20;
+let num2 = 30;
+
+let sum = num1 + num2; // addition
+let sub = num1 - num2; // difference
+let mul = num1 * num2; // product
+let div = num1 / num2; // quotient
+let rem = num1 % num2; // remainder
+let pow = num1 ** num2; // exponent
+
+console.log(
+  `sum -> ${sum}, sub -> ${sub},mul -> ${mul},div -> ${div},rem -> ${rem},pow -> ${pow}`
+);
+
+let x = 6;
+let y = 4;
+
+const check = x > y; // greater than
+const check1 = x < y; // less than
+const check2 = x >= y; // greater than or equal to
+const check3 = x <= y; // less than or equal to
+const check4 = x == y; // equal to
+const check5 = x != y; // not equal to
+const check6 = x === y; // strict equal to
+const check7 = x !== y; // strict not equal to
+
+console.log(
+  `check -> ${check},check1 -> ${check1},check2 -> ${check2},check3 -> ${check3},check4 -> ${check4},check5 -> ${check5},check6 -> ${check6},check7 -> ${check7}`
+);
+
+// in js
+// Read more about Math Library
+// Read mere about Data & Time
+
+// Math library
+console.log(Math.max([1, 3, 5, 27, 49, 67]));
+console.log(Math.min([1, 3, 5, 27, 49, 67]));
+console.log(Math.random());
+// ----------- Note -----------
+// in nodejs
+// Read more about crypto
+// Read more about http
+
+// Operations on String
+let userName = "sumit";
+let userLastName = "sharma";
+
+// concatenation
+let fullName = userName + " " + userLastName;
+console.log(fullName);
+
+//
