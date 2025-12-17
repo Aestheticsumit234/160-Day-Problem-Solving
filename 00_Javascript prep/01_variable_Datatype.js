@@ -127,5 +127,3 @@ let userLastName = "sharma";
 // concatenation
 let fullName = userName + " " + userLastName;
 console.log(fullName);
-
-//
