@@ -20,8 +20,8 @@ function checkMarks(arr) {
 }
 
 checkMarks(studentMarks);
-console.log(`Maximum Marks = ${maxMarks}`);
-console.log(`Minimum Marks = ${minMarks}`);
+// console.log(`Maximum Marks = ${maxMarks}`);
+// console.log(`Minimum Marks = ${minMarks}`);
 
 // 2. Calculate Average Sales
 // Scenario:An e‑commerce company stores daily sales in an array and wants the average sale.
@@ -35,7 +35,7 @@ function checkAverageSales(arr) {
   for (let i = 0; i < arr.length; i++) {
     sum += arr[i];
   }
-  console.log(`Average Sales = ${sum / arr.length}`);
+  // console.log(`Average Sales = ${sum / arr.length}`);
 }
 
 checkAverageSales(allSells);
@@ -59,14 +59,20 @@ let unique4 = allNumbers.reduce((acc, cur) => {
   }
   return acc;
 }, []);
-console.log(`this is reduce ---> ${unique4}`);
+// console.log(`this is reduce ---> ${unique4}`);
 
 // filter + indexof
 let unique3 = allNumbers.filter(
   (item, index) => allNumbers.indexOf(item) === index
 );
-console.log(unique3);
+// console.log(unique3);
 
 // set
 let unique2 = [...new Set(allNumbers)];
-console.log(unique2);
+// console.log(unique2);
+
+// 7. Rotate Array by K Positions
+// Scenario: A traffic system rotates hourly vehicle data for analysis.
+// Input: [1, 2, 3, 4, 5]
+// k = 2
+// Expected Output:[3, 4, 5, 1, 2]
