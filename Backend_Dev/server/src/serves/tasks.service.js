@@ -5,7 +5,7 @@ export const createTask = async (
   description,
   status,
   priority,
-  useId
+  userId
 ) => {
   const task = await Task.findOne({ title });
   if (task) {
@@ -17,7 +17,7 @@ export const createTask = async (
     description,
     status,
     priority,
-    user: useId,
+    user: userId,
   });
   return newTask;
 };
@@ -27,30 +27,34 @@ export const getAllTasks = async () => {
   return tasks;
 };
 
-export const getSingleTask = async (id) => {
-  const tasks = await Task.findById(id).populate("user", "name email");
-  return tasks;
+export const getSingleTask = async (taskId, userId) => {
+  const task = await Task.findOne({ _id: taskId, user: userId });
+  return task;
 };
 
 export const updateSingleTask = async (
   id,
+  userId,
   title,
   description,
   status,
   priority
 ) => {
-  const tasks = await Task.findById(id).populate("user", "name email");
+  const task = await Task.findOne({ _id: id, user: userId });
 
-  tasks.title = title || tasks.title;
-  tasks.description = description || tasks.description;
-  tasks.status = status || tasks.status;
-  tasks.priority = priority || tasks.priority;
+  if (!task) throw new Error("Task not found");
 
-  await tasks.save();
-  return tasks;
+  task.title = title ?? task.title;
+  task.description = description ?? task.description;
+  task.status = status ?? task.status;
+  task.priority = priority ?? task.priority;
+
+  await task.save();
+  return task;
 };
 
-export const deleteSingleTask = async (id) => {
-  const tasks = await Task.findByIdAndDelete(id);
-  return tasks;
+export const deleteSingleTask = async (id, userId) => {
+  const task = await Task.findOneAndDelete({ _id: id, user: userId });
+  if (!task) throw new Error("Task not found");
+  return task;
 };

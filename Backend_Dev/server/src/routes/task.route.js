@@ -9,7 +9,7 @@ import {
 } from "../controllers/task.controller.js";
 const router = express.Router();
 
-router.use(authMiddleware); // protected route
+router.use(authMiddleware);
 
 router.post("/create", createNewTask);
 router.get("/all", getAllTask);

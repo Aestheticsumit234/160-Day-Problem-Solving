@@ -26,6 +26,15 @@ export const login = async (req, res) => {
     const { email, password } = req.body;
 
     const user = await loginUser(email, password);
+    const token = generateToken(user._id);
+
+    const cookieOptions = {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+    };
+    res.cookie("token", token, cookieOptions);
 
     res.json({
       success: true,
@@ -33,7 +42,7 @@ export const login = async (req, res) => {
         _id: user._id,
         name: user.name,
         email: user.email,
-        token: generateToken(user._id),
+        token,
       },
     });
   } catch (error) {
