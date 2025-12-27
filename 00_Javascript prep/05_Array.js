@@ -336,12 +336,12 @@ console.log(allTypeTeas);
 
 // Q1 — Cart Total Price (MOST COMMON)
 let AmanzonCart = [
-  { item: "Mobile", price: 10000, qty: 2 },
+  { item: "Mobile", price: 10000, qty: 2 }, //0
   { item: "Mouse", price: 500, qty: 3 },
   { item: "Keyboard", price: 1500, qty: 1 },
 ];
 
-const totalQyt = AmanzonCart.reduce((acc, cur) => acc + cur.qty, 0);
+const totalQyt = AmanzonCart.reduce((acc, cur) => acc + cur.qty);
 console.log(totalQyt);
 
 // Q2 — Sum of Numbers (Warm-up but compulsory)
@@ -379,13 +379,19 @@ let groupUser = [
   { name: "Sumit", role: "user" },
   { name: "Riya", role: "admin" },
   { name: "Neha", role: "user" },
+  { names: "Aman", role: "Director" },
+  { names: "Aman", role: "Director" },
+  { names: "Aman", role: "Director" },
 ];
+
+// output :-
+// admin = [{ name: "Aman", role: "admin" },{ name: "Riya", role: "admin" },]
+// user = [ { name: "Sumit", role: "user" },{ name: "Neha", role: "user" },]
 
 const groupedUsers = groupUser.reduce((acc, user) => {
   if (!acc[user.role]) {
     acc[user.role] = [];
   }
-
   acc[user.role].push(user);
   return acc;
 }, {});
