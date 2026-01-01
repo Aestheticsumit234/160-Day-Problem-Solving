@@ -1,0 +1,290 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent; /* Removes blue flash on mobile */
+}
+
+body {
+  background-color: #000; /* Pure black like iPhone */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; /* Mobile style: sits at bottom */
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  padding-bottom: 30px;
+}
+
+:root {
+  --bg-color: #f3f3f3;
+  --card-bg: #ffffff;
+  --keypad-bg: #f9f9f9;
+  --text-main: #000000;
+  --text-muted: #999;
+  --btn-bg: #ffffff;
+  --orange: #e58e51;
+}
+
+.dark-mode {
+  --bg-color: #000000;
+  --card-bg: #171717;
+  --keypad-bg: #121212;
+  --text-main: #ffffff;
+  --text-muted: #666;
+  --btn-bg: #1e1e1e;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+body {
+  background-color: var(--bg-color);
+  font-family: -apple-system, system-ui, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.iphone-frame {
+  width: 340px;
+  height: 680px;
+  background-color: var(--card-bg);
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Theme Switcher */
+.theme-container {
+  padding: 40px 0 20px;
+  display: flex;
+  justify-content: center;
+}
+.theme-switch {
+  background: var(--keypad-bg);
+  padding: 4px;
+  border-radius: 20px;
+  display: flex;
+  gap: 20px;
+  cursor: pointer;
+}
+.toggle-option {
+  padding: 4px 10px;
+  border-radius: 15px;
+}
+.toggle-option.active {
+  background: var(--btn-bg);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Display */
+.display {
+  flex: 1;
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.history {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+.current {
+  color: var(--text-main);
+  font-size: 3.5rem;
+  font-weight: 600;
+}
+
+/* Keypad Drawer */
+.keypad {
+  background: var(--keypad-bg);
+  border-top-left-radius: 35px;
+  border-top-right-radius: 35px;
+  padding: 25px;
+}
+
+.keypad-toolbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  color: var(--text-muted);
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+button {
+  background: var(--btn-bg);
+  border: none;
+  border-radius: 18px;
+  height: 60px;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--text-main);
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.btn-op,
+.btn-eq {
+  background: var(--orange);
+  color: white;
+}
+.text-red {
+  color: #d65a5a;
+}
+.text-orange {
+  color: var(--orange);
+}
+.span-two {
+  grid-column: span 2;
+}
+
+button:active {
+  transform: scale(0.95);
+  opacity: 0.8;
+}
+
+.calculator {
+  width: 100%;
+  max-width: 400px; /* Limits size on tablets/desktop */
+  padding: 20px;
+}
+
+.display {
+  color: white;
+  font-size: 5rem;
+  font-weight: 300;
+  text-align: right;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  min-height: 120px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+button {
+  aspect-ratio: 1 / 1; /* Makes buttons perfect circles */
+  border-radius: 50%;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  background-color: #333333; /* Dark Grey */
+  color: white;
+  transition: filter 0.2s;
+}
+
+button:active {
+  filter: brightness(1.5); /* iOS "glow" effect when pressed */
+}
+
+/* Specific iOS Colors */
+.btn-grey {
+  background-color: #a5a5a5;
+  color: black;
+}
+
+.btn-orange {
+  background-color: #ff9f0a;
+  color: white;
+  font-size: 2.5rem;
+}
+
+.span-two {
+  grid-column: span 2;
+  aspect-ratio: auto; /* Allow the zero button to be wide */
+  border-radius: 50px;
+  text-align: left;
+  padding-left: 35px;
+}
+
+/* Responsive Scaling for small phones */
+@media (max-width: 350px) {
+  .buttons {
+    gap: 10px;
+  }
+  .display {
+    font-size: 3.5rem;
+  }
+  button {
+    font-size: 1.5rem;
+  }
+}
+
+/* For Desktop - Center it vertically */
+@media (min-height: 700px) {
+  body {
+    align-items: center;
+  }
+}
+
+/* Container adjustment */
+.calculator {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  background-color: #1c1c1c; /* Slightly lighter than black to show shadows */
+  border-radius: 40px;
+  border: 2px solid #333; /* Outer border */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); /* Large soft shadow */
+}
+
+/* Button adjustment */
+button {
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  font-size: 2rem;
+  cursor: pointer;
+  color: white;
+  transition: all 0.2s ease;
+
+  /* Added Border and Shadow */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  background-color: #333333;
+}
+
+/* Hover/Active states to show depth change */
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  filter: brightness(1.2);
+}
+
+/* Specialized borders for specific colors */
+.btn-grey {
+  background-color: #a5a5a5;
+  color: black;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.btn-orange {
+  background-color: #ff9f0a;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}

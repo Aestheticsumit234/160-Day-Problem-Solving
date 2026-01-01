@@ -33,3 +33,4 @@ console.log(arr); // Output: [10, 20, 30, 99, 50]
 // and adjusting the index accordingly when a negative index is used.
 // This allows us to access and modify array elements using negative indices.
 // we are mutatiung the original array when we set values using negative indices.
+4 < 6786;
