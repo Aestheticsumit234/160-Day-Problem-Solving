@@ -1,26 +1,24 @@
 const fs = require("fs");
-console.log("Start the Program");
-// 5 lines ---> this is the power of (promise)
+console.log("Game Start");
 
-fs.readFileSync("./Hello.txt", "utf8", function (err, content) {
+fs.readFile("Hello.txt", "utf-8", function (err, data) {
   if (err) {
-    console.log("Error in Handleing...", err);
+    console.log(err);
   } else {
-    console.log("File Reading Sucessfully....", content);
-    fs.writeFile("Backup.txt", content, function (err) {
+    console.log(data);
+    fs.writeFile("Backup.txt", data, function (err, data) {
       if (err) {
-        console.log("Error in Handleing...", err);
+        console.log("Error in File creation and copy", err);
       } else {
+        console.log("File Created sucessfully");
         fs.unlink("Hello.txt", function (err) {
           if (err) {
-            console.log("Error in Handleing...", err);
+            console.log(err);
           } else {
-            console.log("File Deleted Successfully...");
+            console.log("File Deleted");
           }
         });
       }
     });
   }
 });
-
-console.log("End the Program");
