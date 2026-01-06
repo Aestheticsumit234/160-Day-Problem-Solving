@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #121212;
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background-color: #1e1e1e;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  width: 350px;
+}
+
+#Display {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  font-variant-numeric: tabular-nums;
+  color: #00ff88;
+}
+
+/* Button Grouping */
+.buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.1s, background-color 0.2s;
+  font-weight: bold;
+  color: white;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* Individual Button Colors */
+#start {
+  background-color: #2ecc71;
+}
+#start:hover {
+  background-color: #27ae60;
+}
+
+#stop {
+  background-color: #e74c3c;
+}
+#stop:hover {
+  background-color: #c0392b;
+}
+
+#reset {
+  background-color: #f39c12;
+}
+#reset:hover {
+  background-color: #d35400;
+}
+
+#lap {
+  background-color: #3498db;
+}
+#lap:hover {
+  background-color: #2980b9;
+}
+
+#laps {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  max-height: 200px;
+  overflow-y: auto;
+  border-top: 1px solid #333;
+}
+
+#laps li {
+  background-color: #2a2a2a;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
+#laps::-webkit-scrollbar {
+  width: 5px;
+}
+#laps::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 10px;
+}
